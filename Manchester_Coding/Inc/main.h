@@ -52,6 +52,8 @@
 #define USER_BUTTON_EXTI_IRQn EXTI0_IRQn
 #define Manch_Tx_Pin GPIO_PIN_2
 #define Manch_Tx_GPIO_Port GPIOA
+#define Hardware_Trigger_Pin GPIO_PIN_4
+#define Hardware_Trigger_GPIO_Port GPIOA
 #define LED_Blue_Pin GPIO_PIN_8
 #define LED_Blue_GPIO_Port GPIOE
 #define LED_Red_Pin GPIO_PIN_9

@@ -57,9 +57,12 @@ static void MX_GPIO_Init(void);
 
 /* USER CODE BEGIN PFP */
 /* Private function prototypes -----------------------------------------------*/
-static uint8_t T = 125;
-static unsigned int response = 0xFE96;
-static void Manch_Tx(unsigned char response);
+static uint32_t T = 125;
+static unsigned int response = 0x96;
+static void Manch_Tx(unsigned int response);
+
+/*interrupt_detected */
+unsigned char interrupt_detected = 0;
 /* USER CODE END PFP */
 
 /* USER CODE BEGIN 0 */
@@ -98,16 +101,21 @@ int main(void)
     {
       _Error_Handler(__FILE__, __LINE__);
     }
-
+  while(interrupt_detected == 0)
+    {
+    }
   Manch_Tx(response);
+  
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-    
+  HAL_GPIO_TogglePin(LED_Green_GPIO_Port, LED_Green_Pin);
+  HAL_Delay(250);
   /* USER CODE END WHILE */
+
   /* USER CODE BEGIN 3 */
 
   }
@@ -179,7 +187,7 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOE_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(Manch_Tx_GPIO_Port, Manch_Tx_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOA, Manch_Tx_Pin|Hardware_Trigger_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOE, LED_Blue_Pin|LED_Red_Pin|LED_Orange_Pin|LED_Green_Pin 
@@ -195,8 +203,15 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pin = Manch_Tx_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_PULLDOWN;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_MEDIUM;
   HAL_GPIO_Init(Manch_Tx_GPIO_Port, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : Hardware_Trigger_Pin */
+  GPIO_InitStruct.Pin = Hardware_Trigger_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_PULLDOWN;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(Hardware_Trigger_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pins : LED_Blue_Pin LED_Red_Pin LED_Orange_Pin LED_Green_Pin 
                            LED_BLUE_Pin */
@@ -214,9 +229,9 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
-void Manch_Tx(unsigned char response)
+void Manch_Tx(unsigned int response)
 {
-  unsigned int bit_mask = 0x8000;
+  unsigned int bit_mask = 0x80;
   /* Start bit */
   HAL_GPIO_WritePin(Manch_Tx_GPIO_Port, Manch_Tx_Pin, GPIO_PIN_RESET);
   DWT_Delay_us(T);

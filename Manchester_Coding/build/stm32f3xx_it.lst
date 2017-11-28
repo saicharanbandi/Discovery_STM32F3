@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccwK3v9W.s 			page 1
+ARM GAS  /tmp/ccNHq9ny.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccwK3v9W.s 			page 1
   29:Src/stm32f3xx_it.c ****   * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   30:Src/stm32f3xx_it.c ****   *
   31:Src/stm32f3xx_it.c ****   ******************************************************************************
-ARM GAS  /tmp/ccwK3v9W.s 			page 2
+ARM GAS  /tmp/ccNHq9ny.s 			page 2
 
 
   32:Src/stm32f3xx_it.c ****   */
@@ -68,7 +68,7 @@ ARM GAS  /tmp/ccwK3v9W.s 			page 1
   36:Src/stm32f3xx_it.c **** #include "stm32f3xx_it.h"
   37:Src/stm32f3xx_it.c **** 
   38:Src/stm32f3xx_it.c **** /* USER CODE BEGIN 0 */
-  39:Src/stm32f3xx_it.c **** 
+  39:Src/stm32f3xx_it.c **** extern unsigned char interrupt_detected;
   40:Src/stm32f3xx_it.c **** /* USER CODE END 0 */
   41:Src/stm32f3xx_it.c **** 
   42:Src/stm32f3xx_it.c **** /* External variables --------------------------------------------------------*/
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccwK3v9W.s 			page 1
   50              		@ args = 0, pretend = 0, frame = 0
   51              		@ frame_needed = 0, uses_anonymous_args = 0
   52              		@ link register save eliminated.
-ARM GAS  /tmp/ccwK3v9W.s 			page 3
+ARM GAS  /tmp/ccNHq9ny.s 			page 3
 
 
   53              	.L3:
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccwK3v9W.s 			page 1
   88:Src/stm32f3xx_it.c ****   /* USER CODE BEGIN MemoryManagement_IRQn 1 */
   89:Src/stm32f3xx_it.c **** 
   90:Src/stm32f3xx_it.c ****   /* USER CODE END MemoryManagement_IRQn 1 */
-ARM GAS  /tmp/ccwK3v9W.s 			page 4
+ARM GAS  /tmp/ccNHq9ny.s 			page 4
 
 
   91:Src/stm32f3xx_it.c **** }
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccwK3v9W.s 			page 1
  123              		.global	SVC_Handler
  124              		.syntax unified
  125              		.thumb
-ARM GAS  /tmp/ccwK3v9W.s 			page 5
+ARM GAS  /tmp/ccNHq9ny.s 			page 5
 
 
  126              		.thumb_func
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccwK3v9W.s 			page 1
  154              		@ link register save eliminated.
  155 0000 7047     		bx	lr
  156              		.cfi_endproc
-ARM GAS  /tmp/ccwK3v9W.s 			page 6
+ARM GAS  /tmp/ccNHq9ny.s 			page 6
 
 
  157              	.LFE129:
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccwK3v9W.s 			page 1
  189              		.cfi_startproc
  190              		@ args = 0, pretend = 0, frame = 0
  191              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  /tmp/ccwK3v9W.s 			page 7
+ARM GAS  /tmp/ccNHq9ny.s 			page 7
 
 
  192              		.loc 1 168 0
@@ -418,7 +418,7 @@ ARM GAS  /tmp/ccwK3v9W.s 			page 1
  226              		.cfi_offset 14, -4
  191:Src/stm32f3xx_it.c ****   /* USER CODE BEGIN EXTI0_IRQn 0 */
  192:Src/stm32f3xx_it.c **** 
-ARM GAS  /tmp/ccwK3v9W.s 			page 8
+ARM GAS  /tmp/ccNHq9ny.s 			page 8
 
 
  193:Src/stm32f3xx_it.c ****   /* USER CODE END EXTI0_IRQn 0 */
@@ -427,50 +427,70 @@ ARM GAS  /tmp/ccwK3v9W.s 			page 1
  228 0002 0120     		movs	r0, #1
  229 0004 FFF7FEFF 		bl	HAL_GPIO_EXTI_IRQHandler
  230              	.LVL2:
- 231 0008 08BD     		pop	{r3, pc}
- 232              		.cfi_endproc
- 233              	.LFE132:
- 235              		.text
- 236              	.Letext0:
- 237              		.file 2 "/home/saicharan/arm/arm-none-eabi/include/machine/_default_types.h"
- 238              		.file 3 "/home/saicharan/arm/arm-none-eabi/include/stdint.h"
- 239              		.file 4 "Drivers/CMSIS/Include/core_cm4.h"
- 240              		.file 5 "Drivers/CMSIS/Device/ST/STM32F3xx/Include/system_stm32f3xx.h"
- 241              		.file 6 "/home/saicharan/arm/arm-none-eabi/include/sys/lock.h"
- 242              		.file 7 "/home/saicharan/arm/arm-none-eabi/include/sys/_types.h"
- 243              		.file 8 "/home/saicharan/arm/lib/gcc/arm-none-eabi/6.3.0/include/stddef.h"
- 244              		.file 9 "/home/saicharan/arm/arm-none-eabi/include/sys/reent.h"
- 245              		.file 10 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_gpio.h"
- 246              		.file 11 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal.h"
- 247              		.file 12 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_cortex.h"
-ARM GAS  /tmp/ccwK3v9W.s 			page 9
+ 195:Src/stm32f3xx_it.c ****   /* USER CODE BEGIN EXTI0_IRQn 1 */
+ 196:Src/stm32f3xx_it.c ****   interrupt_detected = 1;
+ 231              		.loc 1 196 0
+ 232 0008 0122     		movs	r2, #1
+ 233 000a 044B     		ldr	r3, .L17
+ 234 000c 1A70     		strb	r2, [r3]
+ 197:Src/stm32f3xx_it.c ****   HAL_GPIO_WritePin(Hardware_Trigger_GPIO_Port, Hardware_Trigger_Pin, GPIO_PIN_SET);
+ 235              		.loc 1 197 0
+ 236 000e 1021     		movs	r1, #16
+ 237 0010 4FF09040 		mov	r0, #1207959552
+ 238 0014 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 239              	.LVL3:
+ 240 0018 08BD     		pop	{r3, pc}
+ 241              	.L18:
+ 242 001a 00BF     		.align	2
+ 243              	.L17:
+ 244 001c 00000000 		.word	interrupt_detected
+ 245              		.cfi_endproc
+ 246              	.LFE132:
+ 248              		.text
+ 249              	.Letext0:
+ 250              		.file 2 "/home/saicharan/arm/arm-none-eabi/include/machine/_default_types.h"
+ 251              		.file 3 "/home/saicharan/arm/arm-none-eabi/include/stdint.h"
+ 252              		.file 4 "Drivers/CMSIS/Include/core_cm4.h"
+ 253              		.file 5 "Drivers/CMSIS/Device/ST/STM32F3xx/Include/system_stm32f3xx.h"
+ 254              		.file 6 "Drivers/CMSIS/Device/ST/STM32F3xx/Include/stm32f303xc.h"
+ 255              		.file 7 "/home/saicharan/arm/arm-none-eabi/include/sys/lock.h"
+ 256              		.file 8 "/home/saicharan/arm/arm-none-eabi/include/sys/_types.h"
+ 257              		.file 9 "/home/saicharan/arm/lib/gcc/arm-none-eabi/6.3.0/include/stddef.h"
+ 258              		.file 10 "/home/saicharan/arm/arm-none-eabi/include/sys/reent.h"
+ 259              		.file 11 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_gpio.h"
+ 260              		.file 12 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal.h"
+ 261              		.file 13 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_cortex.h"
+ARM GAS  /tmp/ccNHq9ny.s 			page 9
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 stm32f3xx_it.c
-     /tmp/ccwK3v9W.s:18     .text.NMI_Handler:0000000000000000 $t
-     /tmp/ccwK3v9W.s:25     .text.NMI_Handler:0000000000000000 NMI_Handler
-     /tmp/ccwK3v9W.s:38     .text.HardFault_Handler:0000000000000000 $t
-     /tmp/ccwK3v9W.s:45     .text.HardFault_Handler:0000000000000000 HardFault_Handler
-     /tmp/ccwK3v9W.s:59     .text.MemManage_Handler:0000000000000000 $t
-     /tmp/ccwK3v9W.s:66     .text.MemManage_Handler:0000000000000000 MemManage_Handler
-     /tmp/ccwK3v9W.s:80     .text.BusFault_Handler:0000000000000000 $t
-     /tmp/ccwK3v9W.s:87     .text.BusFault_Handler:0000000000000000 BusFault_Handler
-     /tmp/ccwK3v9W.s:101    .text.UsageFault_Handler:0000000000000000 $t
-     /tmp/ccwK3v9W.s:108    .text.UsageFault_Handler:0000000000000000 UsageFault_Handler
-     /tmp/ccwK3v9W.s:122    .text.SVC_Handler:0000000000000000 $t
-     /tmp/ccwK3v9W.s:129    .text.SVC_Handler:0000000000000000 SVC_Handler
-     /tmp/ccwK3v9W.s:141    .text.DebugMon_Handler:0000000000000000 $t
-     /tmp/ccwK3v9W.s:148    .text.DebugMon_Handler:0000000000000000 DebugMon_Handler
-     /tmp/ccwK3v9W.s:160    .text.PendSV_Handler:0000000000000000 $t
-     /tmp/ccwK3v9W.s:167    .text.PendSV_Handler:0000000000000000 PendSV_Handler
-     /tmp/ccwK3v9W.s:179    .text.SysTick_Handler:0000000000000000 $t
-     /tmp/ccwK3v9W.s:186    .text.SysTick_Handler:0000000000000000 SysTick_Handler
-     /tmp/ccwK3v9W.s:209    .text.EXTI0_IRQHandler:0000000000000000 $t
-     /tmp/ccwK3v9W.s:216    .text.EXTI0_IRQHandler:0000000000000000 EXTI0_IRQHandler
+     /tmp/ccNHq9ny.s:18     .text.NMI_Handler:0000000000000000 $t
+     /tmp/ccNHq9ny.s:25     .text.NMI_Handler:0000000000000000 NMI_Handler
+     /tmp/ccNHq9ny.s:38     .text.HardFault_Handler:0000000000000000 $t
+     /tmp/ccNHq9ny.s:45     .text.HardFault_Handler:0000000000000000 HardFault_Handler
+     /tmp/ccNHq9ny.s:59     .text.MemManage_Handler:0000000000000000 $t
+     /tmp/ccNHq9ny.s:66     .text.MemManage_Handler:0000000000000000 MemManage_Handler
+     /tmp/ccNHq9ny.s:80     .text.BusFault_Handler:0000000000000000 $t
+     /tmp/ccNHq9ny.s:87     .text.BusFault_Handler:0000000000000000 BusFault_Handler
+     /tmp/ccNHq9ny.s:101    .text.UsageFault_Handler:0000000000000000 $t
+     /tmp/ccNHq9ny.s:108    .text.UsageFault_Handler:0000000000000000 UsageFault_Handler
+     /tmp/ccNHq9ny.s:122    .text.SVC_Handler:0000000000000000 $t
+     /tmp/ccNHq9ny.s:129    .text.SVC_Handler:0000000000000000 SVC_Handler
+     /tmp/ccNHq9ny.s:141    .text.DebugMon_Handler:0000000000000000 $t
+     /tmp/ccNHq9ny.s:148    .text.DebugMon_Handler:0000000000000000 DebugMon_Handler
+     /tmp/ccNHq9ny.s:160    .text.PendSV_Handler:0000000000000000 $t
+     /tmp/ccNHq9ny.s:167    .text.PendSV_Handler:0000000000000000 PendSV_Handler
+     /tmp/ccNHq9ny.s:179    .text.SysTick_Handler:0000000000000000 $t
+     /tmp/ccNHq9ny.s:186    .text.SysTick_Handler:0000000000000000 SysTick_Handler
+     /tmp/ccNHq9ny.s:209    .text.EXTI0_IRQHandler:0000000000000000 $t
+     /tmp/ccNHq9ny.s:216    .text.EXTI0_IRQHandler:0000000000000000 EXTI0_IRQHandler
+     /tmp/ccNHq9ny.s:244    .text.EXTI0_IRQHandler:000000000000001c $d
                      .debug_frame:0000000000000010 $d
 
 UNDEFINED SYMBOLS
 HAL_IncTick
 HAL_SYSTICK_IRQHandler
 HAL_GPIO_EXTI_IRQHandler
+HAL_GPIO_WritePin
+interrupt_detected

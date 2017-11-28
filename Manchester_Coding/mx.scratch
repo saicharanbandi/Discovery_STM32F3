@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Project>
-<ProjectName>/home/saicharan/Dropbox/arbeit/lichtsteuer-modul/DALI_programming/STM32E407/trial_code/Discovery_STM32F3/Manchester_Coding/\Manchester_Coding</ProjectName>
+<ProjectName>/home/saicharan/Dropbox/arbeit/lichtsteuer-modul/DALI_programming/STM32/trial_code/Discovery_STM32F3/Manchester_Coding/\Manchester_Coding</ProjectName>
 <CMSIS>Drivers/CMSIS</CMSIS>
 <HAL_Driver>/home/saicharan/STM32Cube/Repository//STM32Cube_FW_F3_V1.9.0/Drivers/CMSIS</HAL_Driver>
 
@@ -32,7 +32,7 @@
     <usedDebug>true</usedDebug>
     	<debugprobe></debugprobe>
     <optimization></optimization>
-    <icfloc>1</icfloc>
+    <icfloc>0</icfloc>
     <Adefines>
         <define></define>
     </Adefines>   

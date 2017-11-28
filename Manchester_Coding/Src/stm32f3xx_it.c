@@ -36,7 +36,7 @@
 #include "stm32f3xx_it.h"
 
 /* USER CODE BEGIN 0 */
-
+extern unsigned char interrupt_detected;
 /* USER CODE END 0 */
 
 /* External variables --------------------------------------------------------*/
@@ -193,7 +193,8 @@ void EXTI0_IRQHandler(void)
   /* USER CODE END EXTI0_IRQn 0 */
   HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_0);
   /* USER CODE BEGIN EXTI0_IRQn 1 */
-
+  interrupt_detected = 1;
+  HAL_GPIO_WritePin(Hardware_Trigger_GPIO_Port, Hardware_Trigger_Pin, GPIO_PIN_SET);
   /* USER CODE END EXTI0_IRQn 1 */
 }
 
