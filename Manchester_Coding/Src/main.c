@@ -57,8 +57,8 @@ static void MX_GPIO_Init(void);
 
 /* USER CODE BEGIN PFP */
 /* Private function prototypes -----------------------------------------------*/
-static uint32_t T = 125;
-static unsigned int response = 0x96;
+static uint32_t T = 100;  /* T value in usec(microseconds) */
+static unsigned int response = 0xFE96; /* with FE as pre-amble data */
 static void Manch_Tx(unsigned int response);
 
 /*interrupt_detected */
@@ -104,6 +104,8 @@ int main(void)
   while(interrupt_detected == 0)
     {
     }
+  /* I think here, there is a definitive need of some delay */
+  DWT_Delay_us(100);
   Manch_Tx(response);
   
   /* USER CODE END 2 */
@@ -138,7 +140,7 @@ void SystemClock_Config(void)
   RCC_OscInitStruct.HSICalibrationValue = 16;
   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
   RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSI;
-  RCC_OscInitStruct.PLL.PLLMUL = RCC_PLL_MUL16;
+  RCC_OscInitStruct.PLL.PLLMUL = RCC_PLL_MUL8;
   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
   {
     _Error_Handler(__FILE__, __LINE__);
@@ -150,10 +152,10 @@ void SystemClock_Config(void)
                               |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
   RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
   RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
-  RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV2;
+  RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV4;
   RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
 
-  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_2) != HAL_OK)
+  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_1) != HAL_OK)
   {
     _Error_Handler(__FILE__, __LINE__);
   }
@@ -199,19 +201,12 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_PULLDOWN;
   HAL_GPIO_Init(USER_BUTTON_GPIO_Port, &GPIO_InitStruct);
 
-  /*Configure GPIO pin : Manch_Tx_Pin */
-  GPIO_InitStruct.Pin = Manch_Tx_Pin;
+  /*Configure GPIO pins : Manch_Tx_Pin Hardware_Trigger_Pin */
+  GPIO_InitStruct.Pin = Manch_Tx_Pin|Hardware_Trigger_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_PULLDOWN;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_MEDIUM;
-  HAL_GPIO_Init(Manch_Tx_GPIO_Port, &GPIO_InitStruct);
-
-  /*Configure GPIO pin : Hardware_Trigger_Pin */
-  GPIO_InitStruct.Pin = Hardware_Trigger_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-  GPIO_InitStruct.Pull = GPIO_PULLDOWN;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(Hardware_Trigger_GPIO_Port, &GPIO_InitStruct);
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
+  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
   /*Configure GPIO pins : LED_Blue_Pin LED_Red_Pin LED_Orange_Pin LED_Green_Pin 
                            LED_BLUE_Pin */
@@ -231,7 +226,7 @@ static void MX_GPIO_Init(void)
 /* USER CODE BEGIN 4 */
 void Manch_Tx(unsigned int response)
 {
-  unsigned int bit_mask = 0x80;
+  unsigned int bit_mask = 0x8000;
   /* Start bit */
   HAL_GPIO_WritePin(Manch_Tx_GPIO_Port, Manch_Tx_Pin, GPIO_PIN_RESET);
   DWT_Delay_us(T);

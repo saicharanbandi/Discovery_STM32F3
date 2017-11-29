@@ -17,18 +17,12 @@ static void MX_GPIO_Init(void)
 #tGPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
 #tGPIO_InitStruct.Pull = GPIO_PULLDOWN;
 #tHAL_GPIO_Init(USER_BUTTON_GPIO_Port, &GPIO_InitStruct);
-#n#t/*Configure GPIO pin : Manch_Tx_Pin */
-#tGPIO_InitStruct.Pin = Manch_Tx_Pin;
+#n#t/*Configure GPIO pins : Manch_Tx_Pin Hardware_Trigger_Pin */
+#tGPIO_InitStruct.Pin = Manch_Tx_Pin|Hardware_Trigger_Pin;
 #tGPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
 #tGPIO_InitStruct.Pull = GPIO_PULLDOWN;
-#tGPIO_InitStruct.Speed = GPIO_SPEED_FREQ_MEDIUM;
-#tHAL_GPIO_Init(Manch_Tx_GPIO_Port, &GPIO_InitStruct);
-#n#t/*Configure GPIO pin : Hardware_Trigger_Pin */
-#tGPIO_InitStruct.Pin = Hardware_Trigger_Pin;
-#tGPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-#tGPIO_InitStruct.Pull = GPIO_PULLDOWN;
-#tGPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-#tHAL_GPIO_Init(Hardware_Trigger_GPIO_Port, &GPIO_InitStruct);
+#tGPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
+#tHAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 #n#t/*Configure GPIO pins : LED_Blue_Pin LED_Red_Pin LED_Orange_Pin LED_Green_Pin #n#t#t#t#t#t#t#t#t#t#t#t#t#t LED_BLUE_Pin */
 #tGPIO_InitStruct.Pin = LED_Blue_Pin|LED_Red_Pin|LED_Orange_Pin|LED_Green_Pin #n#t#t#t#t#t#t#t#t#t#t#t#t#t|LED_BLUE_Pin;
 #tGPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
