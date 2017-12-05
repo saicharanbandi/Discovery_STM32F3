@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccdp7ooa.s 			page 1
+ARM GAS  /tmp/cccD1Lz5.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccdp7ooa.s 			page 1
   30:Src/main.c    ****   * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
   31:Src/main.c    ****   * SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
   32:Src/main.c    ****   * CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
-ARM GAS  /tmp/ccdp7ooa.s 			page 2
+ARM GAS  /tmp/cccD1Lz5.s 			page 2
 
 
   33:Src/main.c    ****   * OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
@@ -88,8 +88,8 @@ ARM GAS  /tmp/ccdp7ooa.s 			page 1
   57:Src/main.c    **** 
   58:Src/main.c    **** /* USER CODE BEGIN PFP */
   59:Src/main.c    **** /* Private function prototypes -----------------------------------------------*/
-  60:Src/main.c    **** static uint32_t T = 100;  /* T value in usec(microseconds) */
-  61:Src/main.c    **** static unsigned int response = 0xFE96; /* with FE as pre-amble data */
+  60:Src/main.c    **** static uint32_t T = 400;  /* T value in usec(microseconds) */
+  61:Src/main.c    **** static unsigned int response = 0xFED5; /* with FE as pre-amble data */
   62:Src/main.c    **** static void Manch_Tx(unsigned int response);
   63:Src/main.c    **** 
   64:Src/main.c    **** /*interrupt_detected */
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccdp7ooa.s 			page 1
   87:Src/main.c    **** 
   88:Src/main.c    ****   /* Configure the system clock */
   89:Src/main.c    ****   SystemClock_Config();
-ARM GAS  /tmp/ccdp7ooa.s 			page 3
+ARM GAS  /tmp/cccD1Lz5.s 			page 3
 
 
   90:Src/main.c    **** 
@@ -139,7 +139,7 @@ ARM GAS  /tmp/ccdp7ooa.s 			page 1
  105:Src/main.c    ****     {
  106:Src/main.c    ****     }
  107:Src/main.c    ****   /* I think here, there is a definitive need of some delay */
- 108:Src/main.c    ****   DWT_Delay_us(100);
+ 108:Src/main.c    ****   DWT_Delay_us(10);
  109:Src/main.c    ****   Manch_Tx(response);
  110:Src/main.c    ****   
  111:Src/main.c    ****   /* USER CODE END 2 */
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccdp7ooa.s 			page 1
  144:Src/main.c    ****   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
  145:Src/main.c    ****   {
  146:Src/main.c    ****     _Error_Handler(__FILE__, __LINE__);
-ARM GAS  /tmp/ccdp7ooa.s 			page 4
+ARM GAS  /tmp/cccD1Lz5.s 			page 4
 
 
  147:Src/main.c    ****   }
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccdp7ooa.s 			page 1
  186:Src/main.c    **** 
  187:Src/main.c    ****   /* GPIO Ports Clock Enable */
  188:Src/main.c    ****   __HAL_RCC_GPIOA_CLK_ENABLE();
-ARM GAS  /tmp/ccdp7ooa.s 			page 5
+ARM GAS  /tmp/cccD1Lz5.s 			page 5
 
 
   42              		.loc 1 188 0
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccdp7ooa.s 			page 1
   83 004e 0594     		str	r4, [sp, #20]
  202:Src/main.c    ****   HAL_GPIO_Init(USER_BUTTON_GPIO_Port, &GPIO_InitStruct);
   84              		.loc 1 202 0
-ARM GAS  /tmp/ccdp7ooa.s 			page 6
+ARM GAS  /tmp/cccD1Lz5.s 			page 6
 
 
   85 0050 03A9     		add	r1, sp, #12
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccdp7ooa.s 			page 1
  120 0086 2246     		mov	r2, r4
  121 0088 2146     		mov	r1, r4
  122 008a 0620     		movs	r0, #6
-ARM GAS  /tmp/ccdp7ooa.s 			page 7
+ARM GAS  /tmp/cccD1Lz5.s 			page 7
 
 
  123 008c FFF7FEFF 		bl	HAL_NVIC_SetPriority
@@ -418,7 +418,7 @@ ARM GAS  /tmp/ccdp7ooa.s 			page 1
   23:Inc/dwt_stm32_delay.h ****    * @param  microseconds: delay in microseconds
   24:Inc/dwt_stm32_delay.h ****    */
   25:Inc/dwt_stm32_delay.h ****   __STATIC_INLINE void DWT_Delay_us(volatile uint32_t microseconds)
-ARM GAS  /tmp/ccdp7ooa.s 			page 8
+ARM GAS  /tmp/cccD1Lz5.s 			page 8
 
 
   26:Inc/dwt_stm32_delay.h ****   {
@@ -478,7 +478,7 @@ ARM GAS  /tmp/ccdp7ooa.s 			page 1
  199              	.L8:
  200 0030 001000E0 		.word	-536866816
  201 0034 83DE1B43 		.word	1125899907
-ARM GAS  /tmp/ccdp7ooa.s 			page 9
+ARM GAS  /tmp/cccD1Lz5.s 			page 9
 
 
  202              		.cfi_endproc
@@ -523,31 +523,31 @@ ARM GAS  /tmp/ccdp7ooa.s 			page 1
  236              	.LVL15:
  232:Src/main.c    ****   DWT_Delay_us(T);
  237              		.loc 1 232 0
- 238 0010 6420     		movs	r0, #100
- 239 0012 FFF7FEFF 		bl	DWT_Delay_us
+ 238 0010 4FF4C870 		mov	r0, #400
+ 239 0014 FFF7FEFF 		bl	DWT_Delay_us
  240              	.LVL16:
  233:Src/main.c    ****   HAL_GPIO_WritePin(Manch_Tx_GPIO_Port, Manch_Tx_Pin, GPIO_PIN_SET);
  241              		.loc 1 233 0
- 242 0016 0122     		movs	r2, #1
- 243 0018 0421     		movs	r1, #4
- 244 001a 4FF09040 		mov	r0, #1207959552
- 245 001e FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 242 0018 0122     		movs	r2, #1
+ 243 001a 0421     		movs	r1, #4
+ 244 001c 4FF09040 		mov	r0, #1207959552
+ 245 0020 FFF7FEFF 		bl	HAL_GPIO_WritePin
  246              	.LVL17:
  234:Src/main.c    ****   DWT_Delay_us(T);
  247              		.loc 1 234 0
- 248 0022 6420     		movs	r0, #100
- 249 0024 FFF7FEFF 		bl	DWT_Delay_us
+ 248 0024 4FF4C870 		mov	r0, #400
+ 249 0028 FFF7FEFF 		bl	DWT_Delay_us
  250              	.LVL18:
-ARM GAS  /tmp/ccdp7ooa.s 			page 10
+ARM GAS  /tmp/cccD1Lz5.s 			page 10
 
 
  229:Src/main.c    ****   /* Start bit */
  251              		.loc 1 229 0
- 252 0028 4FF40044 		mov	r4, #32768
+ 252 002c 4FF40044 		mov	r4, #32768
  235:Src/main.c    ****   /* while looop */
  236:Src/main.c    ****   while(bit_mask)
  253              		.loc 1 236 0
- 254 002c 2CE0     		b	.L11
+ 254 0030 2EE0     		b	.L11
  255              	.LVL19:
  256              	.L12:
  237:Src/main.c    ****     {
@@ -564,75 +564,75 @@ ARM GAS  /tmp/ccdp7ooa.s 			page 1
  248:Src/main.c    **** 	  /* Transmit 0 */
  249:Src/main.c    **** 	  HAL_GPIO_WritePin(Manch_Tx_GPIO_Port, Manch_Tx_Pin, GPIO_PIN_SET);
  257              		.loc 1 249 0
- 258 002e 0122     		movs	r2, #1
- 259 0030 0421     		movs	r1, #4
- 260 0032 4FF09040 		mov	r0, #1207959552
- 261 0036 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 258 0032 0122     		movs	r2, #1
+ 259 0034 0421     		movs	r1, #4
+ 260 0036 4FF09040 		mov	r0, #1207959552
+ 261 003a FFF7FEFF 		bl	HAL_GPIO_WritePin
  262              	.LVL20:
- 263 003a 6426     		movs	r6, #100
+ 263 003e 4FF4C876 		mov	r6, #400
  264              	.LVL21:
  265              	.LBB12:
  266              	.LBB13:
   27:Inc/dwt_stm32_delay.h **** 
  267              		.loc 2 27 0
- 268 003c 2E4B     		ldr	r3, .L21
- 269 003e 5F68     		ldr	r7, [r3, #4]
+ 268 0042 304B     		ldr	r3, .L21
+ 269 0044 5F68     		ldr	r7, [r3, #4]
  270              	.LVL22:
   30:Inc/dwt_stm32_delay.h **** 
  271              		.loc 2 30 0
- 272 0040 FFF7FEFF 		bl	HAL_RCC_GetHCLKFreq
+ 272 0046 FFF7FEFF 		bl	HAL_RCC_GetHCLKFreq
  273              	.LVL23:
- 274 0044 2D4B     		ldr	r3, .L21+4
- 275 0046 A3FB0030 		umull	r3, r0, r3, r0
- 276 004a 800C     		lsrs	r0, r0, #18
- 277 004c 06FB00F6 		mul	r6, r6, r0
+ 274 004a 2F4B     		ldr	r3, .L21+4
+ 275 004c A3FB0030 		umull	r3, r0, r3, r0
+ 276 0050 800C     		lsrs	r0, r0, #18
+ 277 0052 06FB00F6 		mul	r6, r6, r0
  278              	.L16:
   33:Inc/dwt_stm32_delay.h ****   }
  279              		.loc 2 33 0
- 280 0050 294B     		ldr	r3, .L21
- 281 0052 5B68     		ldr	r3, [r3, #4]
- 282 0054 DB1B     		subs	r3, r3, r7
- 283 0056 B342     		cmp	r3, r6
- 284 0058 FAD3     		bcc	.L16
+ 280 0056 2B4B     		ldr	r3, .L21
+ 281 0058 5B68     		ldr	r3, [r3, #4]
+ 282 005a DB1B     		subs	r3, r3, r7
+ 283 005c B342     		cmp	r3, r6
+ 284 005e FAD3     		bcc	.L16
  285              	.LVL24:
  286              	.LBE13:
  287              	.LBE12:
  250:Src/main.c    **** 	  DWT_Delay_us(T);
-ARM GAS  /tmp/ccdp7ooa.s 			page 11
+ARM GAS  /tmp/cccD1Lz5.s 			page 11
 
 
  251:Src/main.c    **** 	  HAL_GPIO_WritePin(Manch_Tx_GPIO_Port, Manch_Tx_Pin, GPIO_PIN_RESET);
  288              		.loc 1 251 0
- 289 005a 0022     		movs	r2, #0
- 290 005c 0421     		movs	r1, #4
- 291 005e 4FF09040 		mov	r0, #1207959552
- 292 0062 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 289 0060 0022     		movs	r2, #0
+ 290 0062 0421     		movs	r1, #4
+ 291 0064 4FF09040 		mov	r0, #1207959552
+ 292 0068 FFF7FEFF 		bl	HAL_GPIO_WritePin
  293              	.LVL25:
- 294 0066 6426     		movs	r6, #100
+ 294 006c 4FF4C876 		mov	r6, #400
  295              	.LVL26:
  296              	.LBB14:
  297              	.LBB15:
   27:Inc/dwt_stm32_delay.h **** 
  298              		.loc 2 27 0
- 299 0068 234B     		ldr	r3, .L21
- 300 006a 5F68     		ldr	r7, [r3, #4]
+ 299 0070 244B     		ldr	r3, .L21
+ 300 0072 5F68     		ldr	r7, [r3, #4]
  301              	.LVL27:
   30:Inc/dwt_stm32_delay.h **** 
  302              		.loc 2 30 0
- 303 006c FFF7FEFF 		bl	HAL_RCC_GetHCLKFreq
+ 303 0074 FFF7FEFF 		bl	HAL_RCC_GetHCLKFreq
  304              	.LVL28:
- 305 0070 224B     		ldr	r3, .L21+4
- 306 0072 A3FB0030 		umull	r3, r0, r3, r0
- 307 0076 800C     		lsrs	r0, r0, #18
- 308 0078 06FB00F6 		mul	r6, r6, r0
+ 305 0078 234B     		ldr	r3, .L21+4
+ 306 007a A3FB0030 		umull	r3, r0, r3, r0
+ 307 007e 800C     		lsrs	r0, r0, #18
+ 308 0080 06FB00F6 		mul	r6, r6, r0
  309              	.L17:
   33:Inc/dwt_stm32_delay.h ****   }
  310              		.loc 2 33 0
- 311 007c 1E4B     		ldr	r3, .L21
- 312 007e 5B68     		ldr	r3, [r3, #4]
- 313 0080 DB1B     		subs	r3, r3, r7
- 314 0082 B342     		cmp	r3, r6
- 315 0084 FAD3     		bcc	.L17
+ 311 0084 1F4B     		ldr	r3, .L21
+ 312 0086 5B68     		ldr	r3, [r3, #4]
+ 313 0088 DB1B     		subs	r3, r3, r7
+ 314 008a B342     		cmp	r3, r6
+ 315 008c FAD3     		bcc	.L17
  316              	.LVL29:
  317              	.L15:
  318              	.LBE15:
@@ -641,109 +641,109 @@ ARM GAS  /tmp/ccdp7ooa.s 			page 1
  253:Src/main.c    **** 	}
  254:Src/main.c    ****       bit_mask = bit_mask >> 1;
  320              		.loc 1 254 0
- 321 0086 6408     		lsrs	r4, r4, #1
+ 321 008e 6408     		lsrs	r4, r4, #1
  322              	.LVL30:
  323              	.L11:
  236:Src/main.c    ****     {
  324              		.loc 1 236 0
- 325 0088 74B3     		cbz	r4, .L20
+ 325 0090 84B3     		cbz	r4, .L20
  238:Src/main.c    **** 	{
  326              		.loc 1 238 0
- 327 008a 2C42     		tst	r4, r5
- 328 008c CFD0     		beq	.L12
+ 327 0092 2C42     		tst	r4, r5
+ 328 0094 CDD0     		beq	.L12
  241:Src/main.c    **** 	  DWT_Delay_us(T);
  329              		.loc 1 241 0
- 330 008e 0022     		movs	r2, #0
- 331 0090 0421     		movs	r1, #4
- 332 0092 4FF09040 		mov	r0, #1207959552
- 333 0096 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 330 0096 0022     		movs	r2, #0
+ 331 0098 0421     		movs	r1, #4
+ 332 009a 4FF09040 		mov	r0, #1207959552
+ 333 009e FFF7FEFF 		bl	HAL_GPIO_WritePin
  334              	.LVL31:
-ARM GAS  /tmp/ccdp7ooa.s 			page 12
+ARM GAS  /tmp/cccD1Lz5.s 			page 12
 
 
- 335 009a 6426     		movs	r6, #100
+ 335 00a2 4FF4C876 		mov	r6, #400
  336              	.LVL32:
  337              	.LBB16:
  338              	.LBB17:
   27:Inc/dwt_stm32_delay.h **** 
  339              		.loc 2 27 0
- 340 009c 164B     		ldr	r3, .L21
- 341 009e 5F68     		ldr	r7, [r3, #4]
+ 340 00a6 174B     		ldr	r3, .L21
+ 341 00a8 5F68     		ldr	r7, [r3, #4]
  342              	.LVL33:
   30:Inc/dwt_stm32_delay.h **** 
  343              		.loc 2 30 0
- 344 00a0 FFF7FEFF 		bl	HAL_RCC_GetHCLKFreq
+ 344 00aa FFF7FEFF 		bl	HAL_RCC_GetHCLKFreq
  345              	.LVL34:
- 346 00a4 154B     		ldr	r3, .L21+4
- 347 00a6 A3FB0030 		umull	r3, r0, r3, r0
- 348 00aa 800C     		lsrs	r0, r0, #18
- 349 00ac 06FB00F6 		mul	r6, r6, r0
+ 346 00ae 164B     		ldr	r3, .L21+4
+ 347 00b0 A3FB0030 		umull	r3, r0, r3, r0
+ 348 00b4 800C     		lsrs	r0, r0, #18
+ 349 00b6 06FB00F6 		mul	r6, r6, r0
  350              	.L13:
   33:Inc/dwt_stm32_delay.h ****   }
  351              		.loc 2 33 0
- 352 00b0 114B     		ldr	r3, .L21
- 353 00b2 5B68     		ldr	r3, [r3, #4]
- 354 00b4 DB1B     		subs	r3, r3, r7
- 355 00b6 B342     		cmp	r3, r6
- 356 00b8 FAD3     		bcc	.L13
+ 352 00ba 124B     		ldr	r3, .L21
+ 353 00bc 5B68     		ldr	r3, [r3, #4]
+ 354 00be DB1B     		subs	r3, r3, r7
+ 355 00c0 B342     		cmp	r3, r6
+ 356 00c2 FAD3     		bcc	.L13
  357              	.LVL35:
  358              	.LBE17:
  359              	.LBE16:
  243:Src/main.c    **** 	  DWT_Delay_us(T);
  360              		.loc 1 243 0
- 361 00ba 0122     		movs	r2, #1
- 362 00bc 0421     		movs	r1, #4
- 363 00be 4FF09040 		mov	r0, #1207959552
- 364 00c2 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 361 00c4 0122     		movs	r2, #1
+ 362 00c6 0421     		movs	r1, #4
+ 363 00c8 4FF09040 		mov	r0, #1207959552
+ 364 00cc FFF7FEFF 		bl	HAL_GPIO_WritePin
  365              	.LVL36:
- 366 00c6 6426     		movs	r6, #100
+ 366 00d0 4FF4C876 		mov	r6, #400
  367              	.LVL37:
  368              	.LBB18:
  369              	.LBB19:
   27:Inc/dwt_stm32_delay.h **** 
  370              		.loc 2 27 0
- 371 00c8 0B4B     		ldr	r3, .L21
- 372 00ca 5F68     		ldr	r7, [r3, #4]
+ 371 00d4 0B4B     		ldr	r3, .L21
+ 372 00d6 5F68     		ldr	r7, [r3, #4]
  373              	.LVL38:
   30:Inc/dwt_stm32_delay.h **** 
  374              		.loc 2 30 0
- 375 00cc FFF7FEFF 		bl	HAL_RCC_GetHCLKFreq
+ 375 00d8 FFF7FEFF 		bl	HAL_RCC_GetHCLKFreq
  376              	.LVL39:
- 377 00d0 0A4B     		ldr	r3, .L21+4
- 378 00d2 A3FB0030 		umull	r3, r0, r3, r0
- 379 00d6 800C     		lsrs	r0, r0, #18
- 380 00d8 06FB00F6 		mul	r6, r6, r0
+ 377 00dc 0A4B     		ldr	r3, .L21+4
+ 378 00de A3FB0030 		umull	r3, r0, r3, r0
+ 379 00e2 800C     		lsrs	r0, r0, #18
+ 380 00e4 06FB00F6 		mul	r6, r6, r0
  381              	.L14:
   33:Inc/dwt_stm32_delay.h ****   }
  382              		.loc 2 33 0
- 383 00dc 064B     		ldr	r3, .L21
- 384 00de 5B68     		ldr	r3, [r3, #4]
-ARM GAS  /tmp/ccdp7ooa.s 			page 13
+ 383 00e8 064B     		ldr	r3, .L21
+ 384 00ea 5B68     		ldr	r3, [r3, #4]
+ARM GAS  /tmp/cccD1Lz5.s 			page 13
 
 
- 385 00e0 DB1B     		subs	r3, r3, r7
- 386 00e2 B342     		cmp	r3, r6
- 387 00e4 FAD3     		bcc	.L14
- 388 00e6 CEE7     		b	.L15
+ 385 00ec DB1B     		subs	r3, r3, r7
+ 386 00ee B342     		cmp	r3, r6
+ 387 00f0 FAD3     		bcc	.L14
+ 388 00f2 CCE7     		b	.L15
  389              	.LVL40:
  390              	.L20:
  391              	.LBE19:
  392              	.LBE18:
  255:Src/main.c    ****     }
- 256:Src/main.c    ****   HAL_GPIO_WritePin(Manch_Tx_GPIO_Port, Manch_Tx_Pin, GPIO_PIN_SET);
+ 256:Src/main.c    ****   HAL_GPIO_WritePin(Manch_Tx_GPIO_Port, Manch_Tx_Pin, GPIO_PIN_RESET);
  393              		.loc 1 256 0
- 394 00e8 0122     		movs	r2, #1
- 395 00ea 0421     		movs	r1, #4
- 396 00ec 4FF09040 		mov	r0, #1207959552
- 397 00f0 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 394 00f4 0022     		movs	r2, #0
+ 395 00f6 0421     		movs	r1, #4
+ 396 00f8 4FF09040 		mov	r0, #1207959552
+ 397 00fc FFF7FEFF 		bl	HAL_GPIO_WritePin
  398              	.LVL41:
- 399 00f4 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 399 0100 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
  400              	.LVL42:
  401              	.L22:
- 402 00f6 00BF     		.align	2
+ 402 0102 00BF     		.align	2
  403              	.L21:
- 404 00f8 001000E0 		.word	-536866816
- 405 00fc 83DE1B43 		.word	1125899907
+ 404 0104 001000E0 		.word	-536866816
+ 405 0108 83DE1B43 		.word	1125899907
  406              		.cfi_endproc
  407              	.LFE127:
  409              		.section	.text._Error_Handler,"ax",%progbits
@@ -778,7 +778,7 @@ ARM GAS  /tmp/ccdp7ooa.s 			page 1
  429              		.cfi_offset 14, -4
  267:Src/main.c    ****   /* USER CODE BEGIN Error_Handler_Debug */
  268:Src/main.c    ****   /* Toggle LD5(Orange) LED */
-ARM GAS  /tmp/ccdp7ooa.s 			page 14
+ARM GAS  /tmp/cccD1Lz5.s 			page 14
 
 
  269:Src/main.c    ****   HAL_GPIO_WritePin(LED_Orange_GPIO_Port, LED_Orange_Pin, GPIO_PIN_SET);
@@ -838,7 +838,7 @@ ARM GAS  /tmp/ccdp7ooa.s 			page 1
  479              		.loc 1 142 0
  480 0012 0023     		movs	r3, #0
  481 0014 0E93     		str	r3, [sp, #56]
-ARM GAS  /tmp/ccdp7ooa.s 			page 15
+ARM GAS  /tmp/cccD1Lz5.s 			page 15
 
 
  143:Src/main.c    ****   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
@@ -898,7 +898,7 @@ ARM GAS  /tmp/ccdp7ooa.s 			page 1
  525 005c 4FF0FF30 		mov	r0, #-1
  526 0060 FFF7FEFF 		bl	HAL_NVIC_SetPriority
  527              	.LVL52:
-ARM GAS  /tmp/ccdp7ooa.s 			page 16
+ARM GAS  /tmp/cccD1Lz5.s 			page 16
 
 
  173:Src/main.c    **** 
@@ -958,7 +958,7 @@ ARM GAS  /tmp/ccdp7ooa.s 			page 1
  579              	.LVL55:
   89:Src/main.c    **** 
  580              		.loc 1 89 0
-ARM GAS  /tmp/ccdp7ooa.s 			page 17
+ARM GAS  /tmp/cccD1Lz5.s 			page 17
 
 
  581 0006 FFF7FEFF 		bl	SystemClock_Config
@@ -981,12 +981,12 @@ ARM GAS  /tmp/ccdp7ooa.s 			page 1
  595 001a FBD0     		beq	.L37
  108:Src/main.c    ****   Manch_Tx(response);
  596              		.loc 1 108 0
- 597 001c 6420     		movs	r0, #100
+ 597 001c 0A20     		movs	r0, #10
  598 001e FFF7FEFF 		bl	DWT_Delay_us
  599              	.LVL59:
  109:Src/main.c    ****   
  600              		.loc 1 109 0
- 601 0022 4FF69660 		movw	r0, #65174
+ 601 0022 4FF6D560 		movw	r0, #65237
  602 0026 FFF7FEFF 		bl	Manch_Tx
  603              	.LVL60:
  604              	.L38:
@@ -1018,7 +1018,7 @@ ARM GAS  /tmp/ccdp7ooa.s 			page 1
  627              		.cfi_endproc
  628              	.LFE124:
  630              		.section	.text.assert_failed,"ax",%progbits
-ARM GAS  /tmp/ccdp7ooa.s 			page 18
+ARM GAS  /tmp/cccD1Lz5.s 			page 18
 
 
  631              		.align	1
@@ -1078,7 +1078,7 @@ ARM GAS  /tmp/ccdp7ooa.s 			page 1
  669              		.file 9 "/home/saicharan/arm/arm-none-eabi/include/sys/_types.h"
  670              		.file 10 "/home/saicharan/arm/lib/gcc/arm-none-eabi/6.3.0/include/stddef.h"
  671              		.file 11 "/home/saicharan/arm/arm-none-eabi/include/sys/reent.h"
-ARM GAS  /tmp/ccdp7ooa.s 			page 19
+ARM GAS  /tmp/cccD1Lz5.s 			page 19
 
 
  672              		.file 12 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_def.h"
@@ -1086,34 +1086,34 @@ ARM GAS  /tmp/ccdp7ooa.s 			page 1
  674              		.file 14 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_gpio.h"
  675              		.file 15 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_cortex.h"
  676              		.file 16 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal.h"
-ARM GAS  /tmp/ccdp7ooa.s 			page 20
+ARM GAS  /tmp/cccD1Lz5.s 			page 20
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 main.c
-     /tmp/ccdp7ooa.s:18     .text.MX_GPIO_Init:0000000000000000 $t
-     /tmp/ccdp7ooa.s:24     .text.MX_GPIO_Init:0000000000000000 MX_GPIO_Init
-     /tmp/ccdp7ooa.s:138    .text.MX_GPIO_Init:000000000000009c $d
-     /tmp/ccdp7ooa.s:145    .text.DWT_Delay_us:0000000000000000 $t
-     /tmp/ccdp7ooa.s:151    .text.DWT_Delay_us:0000000000000000 DWT_Delay_us
-     /tmp/ccdp7ooa.s:200    .text.DWT_Delay_us:0000000000000030 $d
-     /tmp/ccdp7ooa.s:206    .text.Manch_Tx:0000000000000000 $t
-     /tmp/ccdp7ooa.s:212    .text.Manch_Tx:0000000000000000 Manch_Tx
-     /tmp/ccdp7ooa.s:404    .text.Manch_Tx:00000000000000f8 $d
-     /tmp/ccdp7ooa.s:410    .text._Error_Handler:0000000000000000 $t
-     /tmp/ccdp7ooa.s:417    .text._Error_Handler:0000000000000000 _Error_Handler
-     /tmp/ccdp7ooa.s:443    .text._Error_Handler:0000000000000010 $d
-     /tmp/ccdp7ooa.s:448    .text.SystemClock_Config:0000000000000000 $t
-     /tmp/ccdp7ooa.s:455    .text.SystemClock_Config:0000000000000000 SystemClock_Config
-     /tmp/ccdp7ooa.s:552    .text.SystemClock_Config:000000000000007c $d
-     /tmp/ccdp7ooa.s:558    .text.main:0000000000000000 $t
-     /tmp/ccdp7ooa.s:565    .text.main:0000000000000000 main
-     /tmp/ccdp7ooa.s:624    .text.main:0000000000000044 $d
-     /tmp/ccdp7ooa.s:631    .text.assert_failed:0000000000000000 $t
-     /tmp/ccdp7ooa.s:638    .text.assert_failed:0000000000000000 assert_failed
-     /tmp/ccdp7ooa.s:655    .bss.interrupt_detected:0000000000000000 interrupt_detected
-     /tmp/ccdp7ooa.s:656    .bss.interrupt_detected:0000000000000000 $d
-     /tmp/ccdp7ooa.s:658    .rodata.SystemClock_Config.str1.4:0000000000000000 $d
+     /tmp/cccD1Lz5.s:18     .text.MX_GPIO_Init:0000000000000000 $t
+     /tmp/cccD1Lz5.s:24     .text.MX_GPIO_Init:0000000000000000 MX_GPIO_Init
+     /tmp/cccD1Lz5.s:138    .text.MX_GPIO_Init:000000000000009c $d
+     /tmp/cccD1Lz5.s:145    .text.DWT_Delay_us:0000000000000000 $t
+     /tmp/cccD1Lz5.s:151    .text.DWT_Delay_us:0000000000000000 DWT_Delay_us
+     /tmp/cccD1Lz5.s:200    .text.DWT_Delay_us:0000000000000030 $d
+     /tmp/cccD1Lz5.s:206    .text.Manch_Tx:0000000000000000 $t
+     /tmp/cccD1Lz5.s:212    .text.Manch_Tx:0000000000000000 Manch_Tx
+     /tmp/cccD1Lz5.s:404    .text.Manch_Tx:0000000000000104 $d
+     /tmp/cccD1Lz5.s:410    .text._Error_Handler:0000000000000000 $t
+     /tmp/cccD1Lz5.s:417    .text._Error_Handler:0000000000000000 _Error_Handler
+     /tmp/cccD1Lz5.s:443    .text._Error_Handler:0000000000000010 $d
+     /tmp/cccD1Lz5.s:448    .text.SystemClock_Config:0000000000000000 $t
+     /tmp/cccD1Lz5.s:455    .text.SystemClock_Config:0000000000000000 SystemClock_Config
+     /tmp/cccD1Lz5.s:552    .text.SystemClock_Config:000000000000007c $d
+     /tmp/cccD1Lz5.s:558    .text.main:0000000000000000 $t
+     /tmp/cccD1Lz5.s:565    .text.main:0000000000000000 main
+     /tmp/cccD1Lz5.s:624    .text.main:0000000000000044 $d
+     /tmp/cccD1Lz5.s:631    .text.assert_failed:0000000000000000 $t
+     /tmp/cccD1Lz5.s:638    .text.assert_failed:0000000000000000 assert_failed
+     /tmp/cccD1Lz5.s:655    .bss.interrupt_detected:0000000000000000 interrupt_detected
+     /tmp/cccD1Lz5.s:656    .bss.interrupt_detected:0000000000000000 $d
+     /tmp/cccD1Lz5.s:658    .rodata.SystemClock_Config.str1.4:0000000000000000 $d
                      .debug_frame:0000000000000010 $d
 
 UNDEFINED SYMBOLS
