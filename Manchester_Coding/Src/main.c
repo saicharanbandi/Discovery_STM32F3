@@ -58,7 +58,7 @@ static void MX_GPIO_Init(void);
 /* USER CODE BEGIN PFP */
 /* Private function prototypes -----------------------------------------------*/
 static uint32_t T = 400;  /* T value in usec(microseconds) */
-static unsigned int response = 0xFED5; /* with FE as pre-amble data */
+static unsigned int response = 0xD5; /* with FE as pre-amble data */
 static void Manch_Tx(unsigned int response);
 
 /*interrupt_detected */
@@ -105,7 +105,7 @@ int main(void)
     {
     }
   /* I think here, there is a definitive need of some delay */
-  DWT_Delay_us(10);
+  /* DWT_Delay_us(10); */
   Manch_Tx(response);
   
   /* USER CODE END 2 */
@@ -226,8 +226,10 @@ static void MX_GPIO_Init(void)
 /* USER CODE BEGIN 4 */
 void Manch_Tx(unsigned int response)
 {
-  unsigned int bit_mask = 0x8000;
+  unsigned int bit_mask = 0x80;
   /* Start bit */
+  HAL_GPIO_WritePin(Manch_Tx_GPIO_Port, Manch_Tx_Pin, GPIO_PIN_SET);
+  HAL_Delay(1);
   HAL_GPIO_WritePin(Manch_Tx_GPIO_Port, Manch_Tx_Pin, GPIO_PIN_RESET);
   DWT_Delay_us(T);
   HAL_GPIO_WritePin(Manch_Tx_GPIO_Port, Manch_Tx_Pin, GPIO_PIN_SET);
@@ -253,7 +255,7 @@ void Manch_Tx(unsigned int response)
 	}
       bit_mask = bit_mask >> 1;
     }
-  HAL_GPIO_WritePin(Manch_Tx_GPIO_Port, Manch_Tx_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(Manch_Tx_GPIO_Port, Manch_Tx_Pin, GPIO_PIN_SET);
 }
 /* USER CODE END 4 */
 
