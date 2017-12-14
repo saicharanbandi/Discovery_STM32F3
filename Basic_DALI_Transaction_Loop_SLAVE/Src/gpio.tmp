@@ -25,7 +25,7 @@ static void MX_GPIO_Init(void)
 #tHAL_GPIO_Init(Manch_Tx_GPIO_Port, &GPIO_InitStruct);
 #n#t/*Configure GPIO pin : Manch_Rx_Pin */
 #tGPIO_InitStruct.Pin = Manch_Rx_Pin;
-#tGPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
+#tGPIO_InitStruct.Mode = GPIO_MODE_IT_RISING_FALLING;
 #tGPIO_InitStruct.Pull = GPIO_PULLUP;
 #tHAL_GPIO_Init(Manch_Rx_GPIO_Port, &GPIO_InitStruct);
 #n#t/*Configure GPIO pins : LED_Blue_Pin LED_Red_Pin LED_Orange_Pin LED_Green_Pin #n#t#t#t#t#t#t#t#t#t#t#t#t#t LED_BLUE_Pin LED_RED_Pin LED_ORANGE_Pin LED_GREEN_Pin */
