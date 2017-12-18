@@ -279,7 +279,9 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 void DALI_Slave_Receiving_Data(void)
 {
   // WHEN FIRST CHANGE ON PIN IS DETECTED, tick_count IS RESTARTED
-  if(tick_count == (bit_count * 8 + 2))
+  /* **************************************************************** */
+  /* The following value changed from 2 to 3 because minor changes in the Master code ! Beware */
+  if(tick_count == (bit_count * 8 + 3))
     {
       if(HAL_GPIO_ReadPin(Manch_Rx_GPIO_Port, Manch_Rx_Pin) == GPIO_PIN_SET)
 	{
@@ -290,7 +292,7 @@ void DALI_Slave_Receiving_Data(void)
 	  dali_slave_array_receive_buffer[bit_count] = 1;
 	}
       /* USED FOR DEBUGGING */
-      /* if(bit_count == 12) */
+      /* if(bit_count == 16) */
       /* 	{ */
       /* 	  if(HAL_GPIO_ReadPin(Manch_Rx_GPIO_Port, Manch_Rx_Pin) == GPIO_PIN_SET) */
       /* 	    { */
@@ -350,12 +352,12 @@ void Forward_Frame_Received(void)
 	}
     }
     
-  if(slave_addr_byte_received == 0xAB)
+  if(slave_addr_byte_received == 0xD5)
     {
       HAL_GPIO_WritePin(LED_Blue_GPIO_Port, LED_Blue_Pin, GPIO_PIN_SET);
       
     }
-  if(slave_cmd_byte_received == 0x57)
+  if(slave_cmd_byte_received == 0x56)
     {
       HAL_GPIO_WritePin(LED_Green_GPIO_Port, LED_Green_Pin, GPIO_PIN_SET);
     }

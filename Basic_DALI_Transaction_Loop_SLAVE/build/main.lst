@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccOlfEX2.s 			page 1
+ARM GAS  /tmp/cciojoWF.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccOlfEX2.s 			page 1
   30:Src/main.c    ****   * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
   31:Src/main.c    ****   * SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
   32:Src/main.c    ****   * CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
-ARM GAS  /tmp/ccOlfEX2.s 			page 2
+ARM GAS  /tmp/cciojoWF.s 			page 2
 
 
   33:Src/main.c    ****   * OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccOlfEX2.s 			page 1
   87:Src/main.c    ****   /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
   88:Src/main.c    ****   HAL_Init();
   89:Src/main.c    **** 
-ARM GAS  /tmp/ccOlfEX2.s 			page 3
+ARM GAS  /tmp/cciojoWF.s 			page 3
 
 
   90:Src/main.c    ****   /* USER CODE BEGIN Init */
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccOlfEX2.s 			page 1
  144:Src/main.c    ****   RCC_OscInitStruct.HSIState = RCC_HSI_ON;
  145:Src/main.c    ****   RCC_OscInitStruct.HSICalibrationValue = 16;
  146:Src/main.c    ****   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
-ARM GAS  /tmp/ccOlfEX2.s 			page 4
+ARM GAS  /tmp/cciojoWF.s 			page 4
 
 
  147:Src/main.c    ****   RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSI;
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccOlfEX2.s 			page 1
  201:Src/main.c    ****     _Error_Handler(__FILE__, __LINE__);
  202:Src/main.c    ****   }
  203:Src/main.c    **** 
-ARM GAS  /tmp/ccOlfEX2.s 			page 5
+ARM GAS  /tmp/cciojoWF.s 			page 5
 
 
  204:Src/main.c    ****   sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccOlfEX2.s 			page 1
   57 001e 5A61     		str	r2, [r3, #20]
   58 0020 5B69     		ldr	r3, [r3, #20]
   59 0022 03F40013 		and	r3, r3, #2097152
-ARM GAS  /tmp/ccOlfEX2.s 			page 6
+ARM GAS  /tmp/cciojoWF.s 			page 6
 
 
   60 0026 0293     		str	r3, [sp, #8]
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccOlfEX2.s 			page 1
   96 0060 0596     		str	r6, [sp, #20]
  246:Src/main.c    ****   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   97              		.loc 1 246 0
-ARM GAS  /tmp/ccOlfEX2.s 			page 7
+ARM GAS  /tmp/cciojoWF.s 			page 7
 
 
   98 0062 0025     		movs	r5, #0
@@ -418,7 +418,7 @@ ARM GAS  /tmp/ccOlfEX2.s 			page 1
  133 0098 2A46     		mov	r2, r5
  134 009a 2146     		mov	r1, r4
  135 009c 0620     		movs	r0, #6
-ARM GAS  /tmp/ccOlfEX2.s 			page 8
+ARM GAS  /tmp/cciojoWF.s 			page 8
 
 
  136 009e FFF7FEFF 		bl	HAL_NVIC_SetPriority
@@ -477,95 +477,97 @@ ARM GAS  /tmp/ccOlfEX2.s 			page 1
  279:Src/main.c    **** void DALI_Slave_Receiving_Data(void)
  280:Src/main.c    **** {
  281:Src/main.c    ****   // WHEN FIRST CHANGE ON PIN IS DETECTED, tick_count IS RESTARTED
- 282:Src/main.c    ****   if(tick_count == (bit_count * 8 + 2))
-ARM GAS  /tmp/ccOlfEX2.s 			page 9
+ 282:Src/main.c    ****   /* **************************************************************** */
+ARM GAS  /tmp/cciojoWF.s 			page 9
 
 
- 283:Src/main.c    ****     {
- 284:Src/main.c    ****       if(HAL_GPIO_ReadPin(Manch_Rx_GPIO_Port, Manch_Rx_Pin) == GPIO_PIN_SET)
- 285:Src/main.c    **** 	{
- 286:Src/main.c    **** 	  dali_slave_array_receive_buffer[bit_count] = 0;
- 287:Src/main.c    **** 	}
- 288:Src/main.c    ****       else if(HAL_GPIO_ReadPin(Manch_Rx_GPIO_Port, Manch_Rx_Pin) == GPIO_PIN_RESET)
- 289:Src/main.c    **** 	{
- 290:Src/main.c    **** 	  dali_slave_array_receive_buffer[bit_count] = 1;
- 291:Src/main.c    **** 	}
- 292:Src/main.c    ****       /* USED FOR DEBUGGING */
- 293:Src/main.c    ****       /* if(bit_count == 12) */
- 294:Src/main.c    ****       /* 	{ */
- 295:Src/main.c    ****       /* 	  if(HAL_GPIO_ReadPin(Manch_Rx_GPIO_Port, Manch_Rx_Pin) == GPIO_PIN_SET) */
- 296:Src/main.c    ****       /* 	    { */
- 297:Src/main.c    ****       /* 	      HAL_GPIO_WritePin(LED_GREEN_GPIO_Port, LED_GREEN_Pin, GPIO_PIN_SET); */
- 298:Src/main.c    ****       /* 	    } */
- 299:Src/main.c    ****       /* 	  else */
- 300:Src/main.c    ****       /* 	    { */
- 301:Src/main.c    ****       /* 	      HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, GPIO_PIN_SET); */
- 302:Src/main.c    ****       /* 	    } */
- 303:Src/main.c    ****       /* 	} */
- 304:Src/main.c    ****       /* USED FOR DEBUGGING */
- 305:Src/main.c    ****     }
- 306:Src/main.c    ****   // increment ticks
- 307:Src/main.c    ****   tick_count++;
- 308:Src/main.c    **** 
- 309:Src/main.c    ****   // increment bit_count
- 310:Src/main.c    ****   if(tick_count % 8 == 0)
- 311:Src/main.c    ****     {
- 312:Src/main.c    ****       bit_count++;
- 313:Src/main.c    ****     }
- 314:Src/main.c    **** 
- 315:Src/main.c    ****   // transfer completed
- 316:Src/main.c    ****   if(bit_count > 16)
- 317:Src/main.c    ****     {
- 318:Src/main.c    ****       // Forward_frame_receive function
- 319:Src/main.c    ****       Forward_Frame_Received();
- 320:Src/main.c    ****       
- 321:Src/main.c    ****       // set dali state
+ 283:Src/main.c    ****   /* The following value changed from 2 to 3 because minor changes in the Master code ! Beware */
+ 284:Src/main.c    ****   if(tick_count == (bit_count * 8 + 3))
+ 285:Src/main.c    ****     {
+ 286:Src/main.c    ****       if(HAL_GPIO_ReadPin(Manch_Rx_GPIO_Port, Manch_Rx_Pin) == GPIO_PIN_SET)
+ 287:Src/main.c    **** 	{
+ 288:Src/main.c    **** 	  dali_slave_array_receive_buffer[bit_count] = 0;
+ 289:Src/main.c    **** 	}
+ 290:Src/main.c    ****       else if(HAL_GPIO_ReadPin(Manch_Rx_GPIO_Port, Manch_Rx_Pin) == GPIO_PIN_RESET)
+ 291:Src/main.c    **** 	{
+ 292:Src/main.c    **** 	  dali_slave_array_receive_buffer[bit_count] = 1;
+ 293:Src/main.c    **** 	}
+ 294:Src/main.c    ****       /* USED FOR DEBUGGING */
+ 295:Src/main.c    ****       /* if(bit_count == 16) */
+ 296:Src/main.c    ****       /* 	{ */
+ 297:Src/main.c    ****       /* 	  if(HAL_GPIO_ReadPin(Manch_Rx_GPIO_Port, Manch_Rx_Pin) == GPIO_PIN_SET) */
+ 298:Src/main.c    ****       /* 	    { */
+ 299:Src/main.c    ****       /* 	      HAL_GPIO_WritePin(LED_GREEN_GPIO_Port, LED_GREEN_Pin, GPIO_PIN_SET); */
+ 300:Src/main.c    ****       /* 	    } */
+ 301:Src/main.c    ****       /* 	  else */
+ 302:Src/main.c    ****       /* 	    { */
+ 303:Src/main.c    ****       /* 	      HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, GPIO_PIN_SET); */
+ 304:Src/main.c    ****       /* 	    } */
+ 305:Src/main.c    ****       /* 	} */
+ 306:Src/main.c    ****       /* USED FOR DEBUGGING */
+ 307:Src/main.c    ****     }
+ 308:Src/main.c    ****   // increment ticks
+ 309:Src/main.c    ****   tick_count++;
+ 310:Src/main.c    **** 
+ 311:Src/main.c    ****   // increment bit_count
+ 312:Src/main.c    ****   if(tick_count % 8 == 0)
+ 313:Src/main.c    ****     {
+ 314:Src/main.c    ****       bit_count++;
+ 315:Src/main.c    ****     }
+ 316:Src/main.c    **** 
+ 317:Src/main.c    ****   // transfer completed
+ 318:Src/main.c    ****   if(bit_count > 16)
+ 319:Src/main.c    ****     {
+ 320:Src/main.c    ****       // Forward_frame_receive function
+ 321:Src/main.c    ****       Forward_Frame_Received();
  322:Src/main.c    ****       
- 323:Src/main.c    ****       // turn TIM_Base_IT to stop
- 324:Src/main.c    ****       if(HAL_TIM_Base_Stop_IT(&htim2) != HAL_OK)
- 325:Src/main.c    **** 	{
- 326:Src/main.c    **** 	  _Error_Handler(__FILE__, __LINE__);
- 327:Src/main.c    **** 	}
- 328:Src/main.c    **** 
- 329:Src/main.c    ****       
- 330:Src/main.c    ****     }
- 331:Src/main.c    **** }
- 332:Src/main.c    **** 
- 333:Src/main.c    **** void Forward_Frame_Received(void)
- 334:Src/main.c    **** {
- 178              		.loc 1 334 0
+ 323:Src/main.c    ****       // set dali state
+ 324:Src/main.c    ****       
+ 325:Src/main.c    ****       // turn TIM_Base_IT to stop
+ 326:Src/main.c    ****       if(HAL_TIM_Base_Stop_IT(&htim2) != HAL_OK)
+ 327:Src/main.c    **** 	{
+ 328:Src/main.c    **** 	  _Error_Handler(__FILE__, __LINE__);
+ 329:Src/main.c    **** 	}
+ 330:Src/main.c    **** 
+ 331:Src/main.c    ****       
+ 332:Src/main.c    ****     }
+ 333:Src/main.c    **** }
+ 334:Src/main.c    **** 
+ 335:Src/main.c    **** void Forward_Frame_Received(void)
+ 336:Src/main.c    **** {
+ 178              		.loc 1 336 0
  179              		.cfi_startproc
  180              		@ args = 0, pretend = 0, frame = 0
+ARM GAS  /tmp/cciojoWF.s 			page 10
+
+
  181              		@ frame_needed = 0, uses_anonymous_args = 0
  182 0000 08B5     		push	{r3, lr}
-ARM GAS  /tmp/ccOlfEX2.s 			page 10
-
-
  183              	.LCFI3:
  184              		.cfi_def_cfa_offset 8
  185              		.cfi_offset 3, -8
  186              		.cfi_offset 14, -4
  187              	.LVL10:
- 335:Src/main.c    ****   unsigned char i;
- 336:Src/main.c    ****   for (i = 1; i < 17; i++) // skip first bit - start bit
- 188              		.loc 1 336 0
+ 337:Src/main.c    ****   unsigned char i;
+ 338:Src/main.c    ****   for (i = 1; i < 17; i++) // skip first bit - start bit
+ 188              		.loc 1 338 0
  189 0002 0123     		movs	r3, #1
  190 0004 0AE0     		b	.L6
  191              	.LVL11:
  192              	.L8:
- 337:Src/main.c    ****     {
- 338:Src/main.c    ****       if(dali_slave_array_receive_buffer[i] == 1)
- 339:Src/main.c    **** 	{
- 340:Src/main.c    **** 	  // address byte
- 341:Src/main.c    **** 	  if(i < 9)
- 342:Src/main.c    **** 	    {
- 343:Src/main.c    ****               slave_addr_byte_received |= (1 << (8 - i));
- 344:Src/main.c    **** 	    }
- 345:Src/main.c    **** 	  // command byte
- 346:Src/main.c    **** 	  else
- 347:Src/main.c    **** 	    {
- 348:Src/main.c    **** 	      slave_cmd_byte_received |= (1 << (7 - (i - 9)));
- 193              		.loc 1 348 0
+ 339:Src/main.c    ****     {
+ 340:Src/main.c    ****       if(dali_slave_array_receive_buffer[i] == 1)
+ 341:Src/main.c    **** 	{
+ 342:Src/main.c    **** 	  // address byte
+ 343:Src/main.c    **** 	  if(i < 9)
+ 344:Src/main.c    **** 	    {
+ 345:Src/main.c    ****               slave_addr_byte_received |= (1 << (8 - i));
+ 346:Src/main.c    **** 	    }
+ 347:Src/main.c    **** 	  // command byte
+ 348:Src/main.c    **** 	  else
+ 349:Src/main.c    **** 	    {
+ 350:Src/main.c    **** 	      slave_cmd_byte_received |= (1 << (7 - (i - 9)));
+ 193              		.loc 1 350 0
  194 0006 C3F11001 		rsb	r1, r3, #16
  195 000a 0122     		movs	r2, #1
  196 000c 8A40     		lsls	r2, r2, r1
@@ -575,33 +577,33 @@ ARM GAS  /tmp/ccOlfEX2.s 			page 1
  200 0014 C9B2     		uxtb	r1, r1
  201 0016 0170     		strb	r1, [r0]
  202              	.L7:
- 336:Src/main.c    ****     {
- 203              		.loc 1 336 0 discriminator 2
+ 338:Src/main.c    ****     {
+ 203              		.loc 1 338 0 discriminator 2
  204 0018 0133     		adds	r3, r3, #1
  205              	.LVL12:
  206 001a DBB2     		uxtb	r3, r3
  207              	.LVL13:
  208              	.L6:
- 336:Src/main.c    ****     {
- 209              		.loc 1 336 0 is_stmt 0 discriminator 1
+ 338:Src/main.c    ****     {
+ 209              		.loc 1 338 0 is_stmt 0 discriminator 1
  210 001c 102B     		cmp	r3, #16
  211 001e 0FD8     		bhi	.L13
- 338:Src/main.c    **** 	{
- 212              		.loc 1 338 0 is_stmt 1
+ 340:Src/main.c    **** 	{
+ 212              		.loc 1 340 0 is_stmt 1
  213 0020 154A     		ldr	r2, .L16+4
  214 0022 D25C     		ldrb	r2, [r2, r3]	@ zero_extendqisi2
  215 0024 D2B2     		uxtb	r2, r2
  216 0026 012A     		cmp	r2, #1
  217 0028 F6D1     		bne	.L7
- 341:Src/main.c    **** 	    {
- 218              		.loc 1 341 0
+ 343:Src/main.c    **** 	    {
+ 218              		.loc 1 343 0
  219 002a 082B     		cmp	r3, #8
+ARM GAS  /tmp/cciojoWF.s 			page 11
+
+
  220 002c EBD8     		bhi	.L8
- 343:Src/main.c    **** 	    }
-ARM GAS  /tmp/ccOlfEX2.s 			page 11
-
-
- 221              		.loc 1 343 0
+ 345:Src/main.c    **** 	    }
+ 221              		.loc 1 345 0
  222 002e C3F10801 		rsb	r1, r3, #8
  223 0032 8A40     		lsls	r2, r2, r1
  224 0034 1148     		ldr	r0, .L16+8
@@ -611,35 +613,35 @@ ARM GAS  /tmp/ccOlfEX2.s 			page 1
  228 003c 0170     		strb	r1, [r0]
  229 003e EBE7     		b	.L7
  230              	.L13:
- 349:Src/main.c    **** 	    }
- 350:Src/main.c    **** 	}
- 351:Src/main.c    ****     }
- 352:Src/main.c    ****     
- 353:Src/main.c    ****   if(slave_addr_byte_received == 0xAB)
- 231              		.loc 1 353 0
+ 351:Src/main.c    **** 	    }
+ 352:Src/main.c    **** 	}
+ 353:Src/main.c    ****     }
+ 354:Src/main.c    ****     
+ 355:Src/main.c    ****   if(slave_addr_byte_received == 0xD5)
+ 231              		.loc 1 355 0
  232 0040 0E4B     		ldr	r3, .L16+8
  233              	.LVL14:
  234 0042 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
  235 0044 DBB2     		uxtb	r3, r3
- 236 0046 AB2B     		cmp	r3, #171
+ 236 0046 D52B     		cmp	r3, #213
  237 0048 05D0     		beq	.L14
  238              	.L10:
- 354:Src/main.c    ****     {
- 355:Src/main.c    ****       HAL_GPIO_WritePin(LED_Blue_GPIO_Port, LED_Blue_Pin, GPIO_PIN_SET);
- 356:Src/main.c    ****       
- 357:Src/main.c    ****     }
- 358:Src/main.c    ****   if(slave_cmd_byte_received == 0x57)
- 239              		.loc 1 358 0
+ 356:Src/main.c    ****     {
+ 357:Src/main.c    ****       HAL_GPIO_WritePin(LED_Blue_GPIO_Port, LED_Blue_Pin, GPIO_PIN_SET);
+ 358:Src/main.c    ****       
+ 359:Src/main.c    ****     }
+ 360:Src/main.c    ****   if(slave_cmd_byte_received == 0x56)
+ 239              		.loc 1 360 0
  240 004a 0A4B     		ldr	r3, .L16
  241 004c 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
  242 004e DBB2     		uxtb	r3, r3
- 243 0050 572B     		cmp	r3, #87
+ 243 0050 562B     		cmp	r3, #86
  244 0052 07D0     		beq	.L15
  245              	.L5:
  246 0054 08BD     		pop	{r3, pc}
  247              	.L14:
- 355:Src/main.c    ****       
- 248              		.loc 1 355 0
+ 357:Src/main.c    ****       
+ 248              		.loc 1 357 0
  249 0056 0122     		movs	r2, #1
  250 0058 4FF48071 		mov	r1, #256
  251 005c 0848     		ldr	r0, .L16+12
@@ -647,20 +649,20 @@ ARM GAS  /tmp/ccOlfEX2.s 			page 1
  253              	.LVL15:
  254 0062 F2E7     		b	.L10
  255              	.L15:
- 359:Src/main.c    ****     {
- 360:Src/main.c    ****       HAL_GPIO_WritePin(LED_Green_GPIO_Port, LED_Green_Pin, GPIO_PIN_SET);
- 256              		.loc 1 360 0
+ 361:Src/main.c    ****     {
+ 362:Src/main.c    ****       HAL_GPIO_WritePin(LED_Green_GPIO_Port, LED_Green_Pin, GPIO_PIN_SET);
+ 256              		.loc 1 362 0
  257 0064 0122     		movs	r2, #1
  258 0066 4FF40061 		mov	r1, #2048
  259 006a 0548     		ldr	r0, .L16+12
  260 006c FFF7FEFF 		bl	HAL_GPIO_WritePin
  261              	.LVL16:
- 361:Src/main.c    ****     }
- 362:Src/main.c    **** }
- 262              		.loc 1 362 0
-ARM GAS  /tmp/ccOlfEX2.s 			page 12
+ 363:Src/main.c    ****     }
+ARM GAS  /tmp/cciojoWF.s 			page 12
 
 
+ 364:Src/main.c    **** }
+ 262              		.loc 1 364 0
  263 0070 F0E7     		b	.L5
  264              	.L17:
  265 0072 00BF     		.align	2
@@ -680,20 +682,20 @@ ARM GAS  /tmp/ccOlfEX2.s 			page 1
  280              		.fpu fpv4-sp-d16
  282              	_Error_Handler:
  283              	.LFB130:
- 363:Src/main.c    **** 	
- 364:Src/main.c    **** 
- 365:Src/main.c    ****       
- 366:Src/main.c    ****       
- 367:Src/main.c    **** /* USER CODE END 4 */
- 368:Src/main.c    **** 
- 369:Src/main.c    **** /**
- 370:Src/main.c    ****   * @brief  This function is executed in case of error occurrence.
- 371:Src/main.c    ****   * @param  None
- 372:Src/main.c    ****   * @retval None
- 373:Src/main.c    ****   */
- 374:Src/main.c    **** void _Error_Handler(char * file, int line)
- 375:Src/main.c    **** {
- 284              		.loc 1 375 0
+ 365:Src/main.c    **** 	
+ 366:Src/main.c    **** 
+ 367:Src/main.c    ****       
+ 368:Src/main.c    ****       
+ 369:Src/main.c    **** /* USER CODE END 4 */
+ 370:Src/main.c    **** 
+ 371:Src/main.c    **** /**
+ 372:Src/main.c    ****   * @brief  This function is executed in case of error occurrence.
+ 373:Src/main.c    ****   * @param  None
+ 374:Src/main.c    ****   * @retval None
+ 375:Src/main.c    ****   */
+ 376:Src/main.c    **** void _Error_Handler(char * file, int line)
+ 377:Src/main.c    **** {
+ 284              		.loc 1 377 0
  285              		.cfi_startproc
  286              		@ Volatile: function does not return.
  287              		@ args = 0, pretend = 0, frame = 0
@@ -716,11 +718,11 @@ ARM GAS  /tmp/ccOlfEX2.s 			page 1
  305              		.loc 1 182 0
  306              		.cfi_startproc
  307              		@ args = 0, pretend = 0, frame = 32
+ARM GAS  /tmp/cciojoWF.s 			page 13
+
+
  308              		@ frame_needed = 0, uses_anonymous_args = 0
  182:Src/main.c    **** 
-ARM GAS  /tmp/ccOlfEX2.s 			page 13
-
-
  309              		.loc 1 182 0
  310 0000 00B5     		push	{lr}
  311              	.LCFI4:
@@ -776,11 +778,11 @@ ARM GAS  /tmp/ccOlfEX2.s 			page 1
  205:Src/main.c    ****   if (HAL_TIMEx_MasterConfigSynchronization(&htim2, &sMasterConfig) != HAL_OK)
  351              		.loc 1 205 0
  352 003a 0393     		str	r3, [sp, #12]
+ARM GAS  /tmp/cciojoWF.s 			page 14
+
+
  206:Src/main.c    ****   {
  353              		.loc 1 206 0
-ARM GAS  /tmp/ccOlfEX2.s 			page 14
-
-
  354 003c 01A9     		add	r1, sp, #4
  355 003e 0948     		ldr	r0, .L28
  356 0040 FFF7FEFF 		bl	HAL_TIMEx_MasterConfigSynchronization
@@ -836,11 +838,11 @@ ARM GAS  /tmp/ccOlfEX2.s 			page 1
  136:Src/main.c    **** 
  404              		.loc 1 136 0
  405              		.cfi_startproc
+ARM GAS  /tmp/cciojoWF.s 			page 15
+
+
  406              		@ args = 0, pretend = 0, frame = 64
  407              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  /tmp/ccOlfEX2.s 			page 15
-
-
  408 0000 00B5     		push	{lr}
  409              	.LCFI8:
  410              		.cfi_def_cfa_offset 4
@@ -896,11 +898,11 @@ ARM GAS  /tmp/ccOlfEX2.s 			page 1
  161:Src/main.c    **** 
  449              		.loc 1 161 0
  450 0036 0593     		str	r3, [sp, #20]
+ARM GAS  /tmp/cciojoWF.s 			page 16
+
+
  163:Src/main.c    ****   {
  451              		.loc 1 163 0
-ARM GAS  /tmp/ccOlfEX2.s 			page 16
-
-
  452 0038 01A8     		add	r0, sp, #4
  453 003a FFF7FEFF 		bl	HAL_RCC_ClockConfig
  454              	.LVL25:
@@ -956,11 +958,11 @@ ARM GAS  /tmp/ccOlfEX2.s 			page 1
  498 0078 D34D6210 		.word	274877907
  499 007c 00000000 		.word	.LC0
  500              		.cfi_endproc
+ARM GAS  /tmp/cciojoWF.s 			page 17
+
+
  501              	.LFE124:
  503              		.section	.text.main,"ax",%progbits
-ARM GAS  /tmp/ccOlfEX2.s 			page 17
-
-
  504              		.align	1
  505              		.global	main
  506              		.syntax unified
@@ -1016,11 +1018,11 @@ ARM GAS  /tmp/ccOlfEX2.s 			page 1
  549              		.loc 1 114 0
  550 0024 7221     		movs	r1, #114
  551 0026 0348     		ldr	r0, .L43+8
+ARM GAS  /tmp/cciojoWF.s 			page 18
+
+
  552 0028 FFF7FEFF 		bl	_Error_Handler
  553              	.LVL37:
-ARM GAS  /tmp/ccOlfEX2.s 			page 18
-
-
  554              	.L44:
  555              		.align	2
  556              	.L43:
@@ -1048,39 +1050,39 @@ ARM GAS  /tmp/ccOlfEX2.s 			page 1
  579              		.cfi_def_cfa_offset 8
  580              		.cfi_offset 3, -8
  581              		.cfi_offset 14, -4
- 282:Src/main.c    ****     {
- 582              		.loc 1 282 0
+ 284:Src/main.c    ****     {
+ 582              		.loc 1 284 0
  583 0002 1F4B     		ldr	r3, .L54
  584 0004 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
  585 0006 DB00     		lsls	r3, r3, #3
- 586 0008 0233     		adds	r3, r3, #2
+ 586 0008 0333     		adds	r3, r3, #3
  587 000a 1E4A     		ldr	r2, .L54+4
  588 000c 1268     		ldr	r2, [r2]
  589 000e 9342     		cmp	r3, r2
  590 0010 0FD0     		beq	.L51
  591              	.L46:
- 307:Src/main.c    **** 
- 592              		.loc 1 307 0
+ 309:Src/main.c    **** 
+ 592              		.loc 1 309 0
  593 0012 1C4A     		ldr	r2, .L54+4
  594 0014 1368     		ldr	r3, [r2]
  595 0016 0133     		adds	r3, r3, #1
  596 0018 1360     		str	r3, [r2]
- 310:Src/main.c    ****     {
- 597              		.loc 1 310 0
+ 312:Src/main.c    ****     {
+ 597              		.loc 1 312 0
  598 001a 13F0070F 		tst	r3, #7
  599 001e 03D1     		bne	.L48
- 312:Src/main.c    ****     }
- 600              		.loc 1 312 0
+ 314:Src/main.c    ****     }
+ 600              		.loc 1 314 0
  601 0020 174A     		ldr	r2, .L54
  602 0022 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
  603 0024 0133     		adds	r3, r3, #1
  604 0026 1370     		strb	r3, [r2]
  605              	.L48:
- 316:Src/main.c    ****     {
- 606              		.loc 1 316 0
-ARM GAS  /tmp/ccOlfEX2.s 			page 19
+ARM GAS  /tmp/cciojoWF.s 			page 19
 
 
+ 318:Src/main.c    ****     {
+ 606              		.loc 1 318 0
  607 0028 154B     		ldr	r3, .L54
  608 002a 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
  609 002c 102B     		cmp	r3, #16
@@ -1088,24 +1090,24 @@ ARM GAS  /tmp/ccOlfEX2.s 			page 1
  611              	.L45:
  612 0030 08BD     		pop	{r3, pc}
  613              	.L51:
- 284:Src/main.c    **** 	{
- 614              		.loc 1 284 0
+ 286:Src/main.c    **** 	{
+ 614              		.loc 1 286 0
  615 0032 1021     		movs	r1, #16
  616 0034 4FF09040 		mov	r0, #1207959552
  617 0038 FFF7FEFF 		bl	HAL_GPIO_ReadPin
  618              	.LVL38:
  619 003c 0128     		cmp	r0, #1
  620 003e 0CD0     		beq	.L53
- 288:Src/main.c    **** 	{
- 621              		.loc 1 288 0
+ 290:Src/main.c    **** 	{
+ 621              		.loc 1 290 0
  622 0040 1021     		movs	r1, #16
  623 0042 4FF09040 		mov	r0, #1207959552
  624 0046 FFF7FEFF 		bl	HAL_GPIO_ReadPin
  625              	.LVL39:
  626 004a 0028     		cmp	r0, #0
  627 004c E1D1     		bne	.L46
- 290:Src/main.c    **** 	}
- 628              		.loc 1 290 0
+ 292:Src/main.c    **** 	}
+ 628              		.loc 1 292 0
  629 004e 0C4B     		ldr	r3, .L54
  630 0050 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
  631 0052 0121     		movs	r1, #1
@@ -1113,8 +1115,8 @@ ARM GAS  /tmp/ccOlfEX2.s 			page 1
  633 0056 D154     		strb	r1, [r2, r3]
  634 0058 DBE7     		b	.L46
  635              	.L53:
- 286:Src/main.c    **** 	}
- 636              		.loc 1 286 0
+ 288:Src/main.c    **** 	}
+ 636              		.loc 1 288 0
  637 005a 094B     		ldr	r3, .L54
  638 005c 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
  639 005e 0021     		movs	r1, #0
@@ -1122,25 +1124,25 @@ ARM GAS  /tmp/ccOlfEX2.s 			page 1
  641 0062 D154     		strb	r1, [r2, r3]
  642 0064 D5E7     		b	.L46
  643              	.L52:
- 319:Src/main.c    ****       
- 644              		.loc 1 319 0
+ 321:Src/main.c    ****       
+ 644              		.loc 1 321 0
  645 0066 FFF7FEFF 		bl	Forward_Frame_Received
  646              	.LVL40:
- 324:Src/main.c    **** 	{
- 647              		.loc 1 324 0
+ 326:Src/main.c    **** 	{
+ 647              		.loc 1 326 0
  648 006a 0848     		ldr	r0, .L54+12
  649 006c FFF7FEFF 		bl	HAL_TIM_Base_Stop_IT
  650              	.LVL41:
  651 0070 0028     		cmp	r0, #0
  652 0072 DDD0     		beq	.L45
- 326:Src/main.c    **** 	}
- 653              		.loc 1 326 0
- 654 0074 4FF4A371 		mov	r1, #326
+ 328:Src/main.c    **** 	}
+ 653              		.loc 1 328 0
+ 654 0074 4FF4A471 		mov	r1, #328
+ARM GAS  /tmp/cciojoWF.s 			page 20
+
+
  655 0078 0548     		ldr	r0, .L54+16
  656 007a FFF7FEFF 		bl	_Error_Handler
-ARM GAS  /tmp/ccOlfEX2.s 			page 20
-
-
  657              	.LVL42:
  658              	.L55:
  659 007e 00BF     		.align	2
@@ -1188,29 +1190,29 @@ ARM GAS  /tmp/ccOlfEX2.s 			page 1
  702              		.fpu fpv4-sp-d16
  704              	assert_failed:
  705              	.LFB131:
- 376:Src/main.c    ****   /* USER CODE BEGIN Error_Handler_Debug */
- 377:Src/main.c    ****   /* User can add his own implementation to report the HAL error return state */
- 378:Src/main.c    ****   while(1) 
- 379:Src/main.c    ****   {
- 380:Src/main.c    ****   }
- 381:Src/main.c    ****   /* USER CODE END Error_Handler_Debug */ 
- 382:Src/main.c    **** }
- 383:Src/main.c    **** 
- 384:Src/main.c    **** #ifdef USE_FULL_ASSERT
+ 378:Src/main.c    ****   /* USER CODE BEGIN Error_Handler_Debug */
+ 379:Src/main.c    ****   /* User can add his own implementation to report the HAL error return state */
+ 380:Src/main.c    ****   while(1) 
+ 381:Src/main.c    ****   {
+ 382:Src/main.c    ****   }
+ 383:Src/main.c    ****   /* USER CODE END Error_Handler_Debug */ 
+ 384:Src/main.c    **** }
  385:Src/main.c    **** 
-ARM GAS  /tmp/ccOlfEX2.s 			page 21
+ARM GAS  /tmp/cciojoWF.s 			page 21
 
 
- 386:Src/main.c    **** /**
- 387:Src/main.c    ****    * @brief Reports the name of the source file and the source line number
- 388:Src/main.c    ****    * where the assert_param error has occurred.
- 389:Src/main.c    ****    * @param file: pointer to the source file name
- 390:Src/main.c    ****    * @param line: assert_param error line source number
- 391:Src/main.c    ****    * @retval None
- 392:Src/main.c    ****    */
- 393:Src/main.c    **** void assert_failed(uint8_t* file, uint32_t line)
- 394:Src/main.c    **** {
- 706              		.loc 1 394 0
+ 386:Src/main.c    **** #ifdef USE_FULL_ASSERT
+ 387:Src/main.c    **** 
+ 388:Src/main.c    **** /**
+ 389:Src/main.c    ****    * @brief Reports the name of the source file and the source line number
+ 390:Src/main.c    ****    * where the assert_param error has occurred.
+ 391:Src/main.c    ****    * @param file: pointer to the source file name
+ 392:Src/main.c    ****    * @param line: assert_param error line source number
+ 393:Src/main.c    ****    * @retval None
+ 394:Src/main.c    ****    */
+ 395:Src/main.c    **** void assert_failed(uint8_t* file, uint32_t line)
+ 396:Src/main.c    **** {
+ 706              		.loc 1 396 0
  707              		.cfi_startproc
  708              		@ args = 0, pretend = 0, frame = 0
  709              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -1256,57 +1258,57 @@ ARM GAS  /tmp/ccOlfEX2.s 			page 1
  754              		.file 8 "/home/saicharan/arm/arm-none-eabi/include/sys/_types.h"
  755              		.file 9 "/home/saicharan/arm/lib/gcc/arm-none-eabi/6.3.0/include/stddef.h"
  756              		.file 10 "/home/saicharan/arm/arm-none-eabi/include/sys/reent.h"
+ARM GAS  /tmp/cciojoWF.s 			page 22
+
+
  757              		.file 11 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_def.h"
  758              		.file 12 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_rcc.h"
-ARM GAS  /tmp/ccOlfEX2.s 			page 22
-
-
  759              		.file 13 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_gpio.h"
  760              		.file 14 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_dma.h"
  761              		.file 15 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_tim.h"
  762              		.file 16 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_tim_ex.h"
  763              		.file 17 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_cortex.h"
  764              		.file 18 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal.h"
-ARM GAS  /tmp/ccOlfEX2.s 			page 23
+ARM GAS  /tmp/cciojoWF.s 			page 23
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 main.c
-     /tmp/ccOlfEX2.s:18     .text.MX_GPIO_Init:0000000000000000 $t
-     /tmp/ccOlfEX2.s:24     .text.MX_GPIO_Init:0000000000000000 MX_GPIO_Init
-     /tmp/ccOlfEX2.s:161    .text.MX_GPIO_Init:00000000000000bc $d
-     /tmp/ccOlfEX2.s:169    .text.Forward_Frame_Received:0000000000000000 $t
-     /tmp/ccOlfEX2.s:176    .text.Forward_Frame_Received:0000000000000000 Forward_Frame_Received
-     /tmp/ccOlfEX2.s:267    .text.Forward_Frame_Received:0000000000000074 $d
+     /tmp/cciojoWF.s:18     .text.MX_GPIO_Init:0000000000000000 $t
+     /tmp/cciojoWF.s:24     .text.MX_GPIO_Init:0000000000000000 MX_GPIO_Init
+     /tmp/cciojoWF.s:161    .text.MX_GPIO_Init:00000000000000bc $d
+     /tmp/cciojoWF.s:169    .text.Forward_Frame_Received:0000000000000000 $t
+     /tmp/cciojoWF.s:176    .text.Forward_Frame_Received:0000000000000000 Forward_Frame_Received
+     /tmp/cciojoWF.s:267    .text.Forward_Frame_Received:0000000000000074 $d
                             *COM*:0000000000000001 slave_cmd_byte_received
                             *COM*:0000000000000011 dali_slave_array_receive_buffer
                             *COM*:0000000000000001 slave_addr_byte_received
-     /tmp/ccOlfEX2.s:275    .text._Error_Handler:0000000000000000 $t
-     /tmp/ccOlfEX2.s:282    .text._Error_Handler:0000000000000000 _Error_Handler
-     /tmp/ccOlfEX2.s:297    .text.MX_TIM2_Init:0000000000000000 $t
-     /tmp/ccOlfEX2.s:303    .text.MX_TIM2_Init:0000000000000000 MX_TIM2_Init
-     /tmp/ccOlfEX2.s:389    .text.MX_TIM2_Init:0000000000000064 $d
+     /tmp/cciojoWF.s:275    .text._Error_Handler:0000000000000000 $t
+     /tmp/cciojoWF.s:282    .text._Error_Handler:0000000000000000 _Error_Handler
+     /tmp/cciojoWF.s:297    .text.MX_TIM2_Init:0000000000000000 $t
+     /tmp/cciojoWF.s:303    .text.MX_TIM2_Init:0000000000000000 MX_TIM2_Init
+     /tmp/cciojoWF.s:389    .text.MX_TIM2_Init:0000000000000064 $d
                             *COM*:0000000000000040 htim2
-     /tmp/ccOlfEX2.s:395    .text.SystemClock_Config:0000000000000000 $t
-     /tmp/ccOlfEX2.s:402    .text.SystemClock_Config:0000000000000000 SystemClock_Config
-     /tmp/ccOlfEX2.s:498    .text.SystemClock_Config:0000000000000078 $d
-     /tmp/ccOlfEX2.s:504    .text.main:0000000000000000 $t
-     /tmp/ccOlfEX2.s:511    .text.main:0000000000000000 main
-     /tmp/ccOlfEX2.s:557    .text.main:000000000000002c $d
-     /tmp/ccOlfEX2.s:564    .text.DALI_Slave_Receiving_Data:0000000000000000 $t
-     /tmp/ccOlfEX2.s:571    .text.DALI_Slave_Receiving_Data:0000000000000000 DALI_Slave_Receiving_Data
-     /tmp/ccOlfEX2.s:661    .text.DALI_Slave_Receiving_Data:0000000000000080 $d
-     /tmp/ccOlfEX2.s:670    .text.HAL_TIM_PeriodElapsedCallback:0000000000000000 $t
-     /tmp/ccOlfEX2.s:677    .text.HAL_TIM_PeriodElapsedCallback:0000000000000000 HAL_TIM_PeriodElapsedCallback
-     /tmp/ccOlfEX2.s:697    .text.assert_failed:0000000000000000 $t
-     /tmp/ccOlfEX2.s:704    .text.assert_failed:0000000000000000 assert_failed
-     /tmp/ccOlfEX2.s:727    .bss.bit_count:0000000000000000 bit_count
-     /tmp/ccOlfEX2.s:740    .bss.tick_count:0000000000000000 tick_count
-     /tmp/ccOlfEX2.s:733    .bss.start_timer:0000000000000000 start_timer
-     /tmp/ccOlfEX2.s:728    .bss.bit_count:0000000000000000 $d
-     /tmp/ccOlfEX2.s:734    .bss.start_timer:0000000000000000 $d
-     /tmp/ccOlfEX2.s:736    .bss.tick_count:0000000000000000 $d
-     /tmp/ccOlfEX2.s:743    .rodata.MX_TIM2_Init.str1.4:0000000000000000 $d
+     /tmp/cciojoWF.s:395    .text.SystemClock_Config:0000000000000000 $t
+     /tmp/cciojoWF.s:402    .text.SystemClock_Config:0000000000000000 SystemClock_Config
+     /tmp/cciojoWF.s:498    .text.SystemClock_Config:0000000000000078 $d
+     /tmp/cciojoWF.s:504    .text.main:0000000000000000 $t
+     /tmp/cciojoWF.s:511    .text.main:0000000000000000 main
+     /tmp/cciojoWF.s:557    .text.main:000000000000002c $d
+     /tmp/cciojoWF.s:564    .text.DALI_Slave_Receiving_Data:0000000000000000 $t
+     /tmp/cciojoWF.s:571    .text.DALI_Slave_Receiving_Data:0000000000000000 DALI_Slave_Receiving_Data
+     /tmp/cciojoWF.s:661    .text.DALI_Slave_Receiving_Data:0000000000000080 $d
+     /tmp/cciojoWF.s:670    .text.HAL_TIM_PeriodElapsedCallback:0000000000000000 $t
+     /tmp/cciojoWF.s:677    .text.HAL_TIM_PeriodElapsedCallback:0000000000000000 HAL_TIM_PeriodElapsedCallback
+     /tmp/cciojoWF.s:697    .text.assert_failed:0000000000000000 $t
+     /tmp/cciojoWF.s:704    .text.assert_failed:0000000000000000 assert_failed
+     /tmp/cciojoWF.s:727    .bss.bit_count:0000000000000000 bit_count
+     /tmp/cciojoWF.s:740    .bss.tick_count:0000000000000000 tick_count
+     /tmp/cciojoWF.s:733    .bss.start_timer:0000000000000000 start_timer
+     /tmp/cciojoWF.s:728    .bss.bit_count:0000000000000000 $d
+     /tmp/cciojoWF.s:734    .bss.start_timer:0000000000000000 $d
+     /tmp/cciojoWF.s:736    .bss.tick_count:0000000000000000 $d
+     /tmp/cciojoWF.s:743    .rodata.MX_TIM2_Init.str1.4:0000000000000000 $d
                      .debug_frame:0000000000000010 $d
 
 UNDEFINED SYMBOLS
