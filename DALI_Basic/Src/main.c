@@ -41,7 +41,11 @@
 #include "stm32f3xx_hal.h"
 
 /* USER CODE BEGIN Includes */
-
+/* ++++++++++ Includes ++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+// skipped timer_slave.h as I don't need it!
+#include "DALI_Slave_ll.h"
+#include "DALI_Slave_defs.h"
+#include "DALI_defs.h"
 /* USER CODE END Includes */
 
 /* Private variables ---------------------------------------------------------*/
